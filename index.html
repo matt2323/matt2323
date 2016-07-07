@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<link rel="manifest" href="/manifest.json">
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+		<title>
+			Coin flip
+		</title>
+	</head>
+	
+	<body>
+		<div class="topStrip">
+			<label class="bigLabel"> My first website</label>
+			<div class="smallLabel">
+				<label>Score: </label>
+				<label id="scoreLabel">0</label>	
+			</div>
+		</div>
+		<div class="coinStrip">
+			<img src="content/heads.png" id="heads" class="coin" style="display:none" >
+			<img src="content/tails.png" id="tails" class="coin" style="display:none">	
+		</div>
+		<div class="buttonBar">
+			<button onclick="flip('heads')" class="btn">Heads</button>
+			<button onclick="flip('tails')"class="btn" >Tails</button>
+		</div>
+	</body>
+	<link rel="stylesheet" href="website.css">
+	<script src="website.js"></script>
+</html>
