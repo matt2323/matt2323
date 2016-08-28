@@ -53,10 +53,13 @@ function updateScore() {
 	document.getElementById('headsButton').removeAttribute("disabled");
 }
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js', { scope: './' }).then(function() {
-    console.log("sw regd");    
-  }).catch(function() {
-    console.log("sw failed");
-  });
-}
+    window.addEventListener('load', function() {
+
+		if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('sw.js', { scope: './' }).then(function() {
+			console.log("sw regd");    
+		}).catch(function() {
+			console.log("sw failed");
+		});
+		}
+	});
