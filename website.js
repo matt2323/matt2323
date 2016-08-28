@@ -54,7 +54,7 @@ function updateScore() {
 }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then(function() {
+  navigator.serviceWorker.register('sw.js', { scope: './' }).then(function() {
     console.log("sw regd");    
   }).catch(function() {
     console.log("sw failed");
