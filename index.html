@@ -19,6 +19,19 @@
 		
 		<!-- splash screen -->
 		<link rel="apple-touch-startup-image" sizes="640x1096" href="/content/heads.png"> <!-- 640 x 1096 -->
+
+		<script>
+			    window.addEventListener('load', function() {
+
+				if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('sw.js', { scope: './' }).then(function() {
+					console.log("sw regd");    
+				}).catch(function() {
+					console.log("sw failed");
+				});
+				}
+				});
+		</script>
 	</head>
 	
 	<body>
