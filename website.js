@@ -52,3 +52,11 @@ function updateScore() {
 	document.getElementById('tailsButton').removeAttribute("disabled");  
 	document.getElementById('headsButton').removeAttribute("disabled");
 }
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then(function() {
+    console.log("sw regd");    
+  }).catch(function() {
+    console.log("sw failed");
+  });
+}
