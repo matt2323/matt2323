@@ -32,8 +32,14 @@ self.addEventListener('fetch', function(event) {
   
   if (event.request.mode === 'navigate' && (event.request.url == "http://localhost/" ||  event.request.url == "https://matt2323.github.io/" ))
   {
-      return fetch(event.request);
-
+      return fetch(event.request).catch(function(error) {
+        caches.match(event.request).then(function(response) {
+          // Cache hit - return the response from the cached version
+          if (response) {
+            return response;
+          }
+        });
+      }); 
   }
 
   event.respondWith(
@@ -43,10 +49,13 @@ self.addEventListener('fetch', function(event) {
         if (response) {
           return response;
         }
-
-        // Not in cache - return the result from the live server
-        // `fetch` is essentially a "fallback"
-        return fetch(event.request);
+   
+        fetch(event.request).then(function(response) {
+          return caches.open(CACHE_NAME).then(function(cache) {
+            cache.put(event.request, response.clone());
+            return response;
+          });  
+      });
       }
     )
   );
