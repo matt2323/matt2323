@@ -1,22 +1,17 @@
-/*#3b5998*/
-
 .btn {
-    background: #3b5998;
+    background: #40ff00;
     border-radius: 0px;
     border: none;
-    font-family: Arial;
-    color: #ffffff;
+    font-family: baskerville;
+    color: black;
     font-size: 4vh;
-    text-decoration: none;
+    text-decoration: mediumblue;
     width: 30vw;
     height: 9vh;
     margin-right: 3vw;
 }
 
-h1{
-    font-family: Arial;
-    color: #ffffff;
-}
+
 
 label{
        font-family: Arial;
@@ -26,20 +21,20 @@ label{
 .bigLabel{
     padding-left: 1vh;
     padding-top: 1vh;
-    font-size: 6vh;
+    font-size: 5vw;
     float: left;
    
 }
 .smallLabel{
     
-    font-size: 3vh;
+    font-size: 3vw;
     float: right;
     padding-right: 1vh;    
     padding-top:  5vh;
 }
 
 .topStrip{
-    background: #3b5998;
+    background: #006600;
      position:fixed;
      margin:0px;
      top:0px;
@@ -55,6 +50,7 @@ label{
     height: 80%;
     width: 100%;
     left: 0px;
+    background-image: url("content/lots.jpg");
 }
 
 .coin{
