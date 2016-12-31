@@ -1,24 +1,5 @@
 {
-  "short_name": "Colin's Coin Chaos",
-  "name": "Colin's Coin Chaos",
-  "icons": [
-    {
-      "src": "/content/heads.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "content/heads.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "/content/heads.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "orientation": "portrait"
+  "name": "Push Notifications codelab",
+  "gcm_sender_id": "150564795563",
+  "start_url" : "http://slickdeals.net"
 }

@@ -1,56 +1,42 @@
 <html>
-	<head>
-		<link rel="manifest" href="/manifest.json">
-		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-		<title>
-			Coin flip
-		</title>
-		
-		<!-- ios -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		
-		<!-- Icons -->
-		<link rel="apple-touch-icon-precomposed" href="/content/heads.png" /> <!-- 57 x 57 -->
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/content/heads.png" /> <!-- 72 x 72 -->
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/content/heads.png" /> <!-- 114 x 114 -->
-		<link rel="apple-touch-icon-precomposed" sizes="250x250" href="/content/heads.png" /> <!-- 250 x 250 -->
-		
-		<!-- splash screen -->
-		<link rel="apple-touch-startup-image" sizes="640x1096" href="/content/heads.png"> <!-- 640 x 1096 -->
+<head>
+        <link rel="manifest" href="manifest.json">
+</head>
+<body>
 
-		<script>
-			    window.addEventListener('load', function() {
+<h1 id='hi'></h1>
 
-				if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register('sw.js', { scope: './' }).then(function() {
-					console.log("sw regd");    
-				}).catch(function() {
-					console.log("sw failed");
-				});
-				}
-				});
-		</script>
-	</head>
-	
-	<body>
-		<div class="topStrip">
-			<label class="bigLabel">Colin's H. Coin App</label>
-			<div class="smallLabel">
-				<label>Score: </label>
-				<label id="scoreLabel">0</label>	
-			</div>
-		</div>
-		<div class="coinStrip">
-			<img src="content/heads.png" id="heads" class="coin" style="display:none" >
-			<img src="content/tails.png" id="tails" class="coin" style="display:none">	
-			<img src="content/spin.gif" id ="spin" class="coin" style="display:none">
-		</div>
-		<div class="buttonBar">
-			<button onclick="flip('heads')" class="btn" id="headsButton">Heads</button>
-			<button onclick="flip('tails')"class="btn" id = "tailsButton">Tails</button>
-		</div>
-	</body>
-	<link rel="stylesheet" href="website.css">
-	<script src="website.js"></script>
+</body>
+
+<script>
+        'use strict';
+
+        if ('serviceWorker' in navigator) {
+            console.log('Service Worker is supported');
+            navigator.serviceWorker.register('sw.js').then(function (reg) {
+                console.log(':^)', reg);
+                reg.pushManager.subscribe({
+                    userVisibleOnly: true
+                }).then(function (sub) {
+                    console.log('endpoint:', sub.endpoint);
+                    document.getElementById('hi').innerText = sub.endpoint.substring(40); 
+
+    //                 $.ajax({
+    //                     url: 'home/saveRegId',
+    //                     data: { regId: sub.endpoint }
+    //                 }).done(function () {
+                        
+    //   //                  alert('Added');
+    //                 });
+
+                });
+            }).catch(function (err) {
+                console.log(':^(', err);
+            });
+        }
+    </script>
+
+
 </html>
+
+
