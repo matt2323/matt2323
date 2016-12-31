@@ -1,5 +1,5 @@
 {
   "name": "Push Notifications codelab",
   "gcm_sender_id": "150564795563",
-  "start_url" : "https://matt2323.github.io/"
+ "start_url" : "/index.html"
 }
